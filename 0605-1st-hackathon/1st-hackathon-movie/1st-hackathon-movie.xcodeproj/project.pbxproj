@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC24D9B8248950980019C5C9 /* ReadReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D9B7248950980019C5C9 /* ReadReviewViewController.swift */; };
+		BC727FC424878EED00A4ED77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FC324878EED00A4ED77 /* AppDelegate.swift */; };
+		BC727FCD24878EF400A4ED77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC727FCC24878EF400A4ED77 /* Assets.xcassets */; };
+		BC727FD024878EF400A4ED77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC727FCE24878EF400A4ED77 /* LaunchScreen.storyboard */; };
+		BC727FD824878F2C00A4ED77 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FD724878F2C00A4ED77 /* UserData.swift */; };
+		BC727FDC2487910B00A4ED77 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FDB2487910B00A4ED77 /* MovieList.swift */; };
+		BC727FE02487A87C00A4ED77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FDF2487A87C00A4ED77 /* TabBarController.swift */; };
+		BC727FE62487AA4E00A4ED77 /* MovieInfoTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FE52487AA4E00A4ED77 /* MovieInfoTapViewController.swift */; };
+		BC727FE82487AA7000A4ED77 /* BookingInfoTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FE72487AA7000A4ED77 /* BookingInfoTapViewController.swift */; };
+		BC727FEA2487AAC600A4ED77 /* ReviewTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FE92487AAC600A4ED77 /* ReviewTapViewController.swift */; };
+		BC727FF22487B9D300A4ED77 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FF12487B9D300A4ED77 /* MovieDetailViewController.swift */; };
+		BC727FF52487C2BC00A4ED77 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC727FF42487C2BC00A4ED77 /* BookingViewController.swift */; };
+		BCB5CEB22489DE3300D4F00C /* ReviewListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5CEB12489DE3300D4F00C /* ReviewListTableViewCell.swift */; };
+		BCB5CEB5248A294B00D4F00C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5CEB3248A294B00D4F00C /* DetailViewController.swift */; };
+		BCB5CEB6248A294B00D4F00C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5CEB4248A294B00D4F00C /* MovieViewController.swift */; };
+		BCB5CEB8248A2AC000D4F00C /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5CEB7248A2AC000D4F00C /* MovieListCell.swift */; };
+		BCB5CEBA248A363000D4F00C /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5CEB9248A363000D4F00C /* ChoiceViewController.swift */; };
+		BCBFE27224892D1B0043AADD /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBFE27124892D1B0043AADD /* WriteReviewViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC24D9B7248950980019C5C9 /* ReadReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadReviewViewController.swift; sourceTree = "<group>"; };
+		BC727FC024878EED00A4ED77 /* 1st-hackathon-movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1st-hackathon-movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC727FC324878EED00A4ED77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BC727FCC24878EF400A4ED77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC727FCF24878EF400A4ED77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BC727FD124878EF400A4ED77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC727FD724878F2C00A4ED77 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BC727FDB2487910B00A4ED77 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
+		BC727FDF2487A87C00A4ED77 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BC727FE52487AA4E00A4ED77 /* MovieInfoTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTapViewController.swift; sourceTree = "<group>"; };
+		BC727FE72487AA7000A4ED77 /* BookingInfoTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingInfoTapViewController.swift; sourceTree = "<group>"; };
+		BC727FE92487AAC600A4ED77 /* ReviewTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTapViewController.swift; sourceTree = "<group>"; };
+		BC727FF12487B9D300A4ED77 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		BC727FF42487C2BC00A4ED77 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		BCB5CEB12489DE3300D4F00C /* ReviewListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTableViewCell.swift; sourceTree = "<group>"; };
+		BCB5CEB3248A294B00D4F00C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BCB5CEB4248A294B00D4F00C /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		BCB5CEB7248A2AC000D4F00C /* MovieListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
+		BCB5CEB9248A363000D4F00C /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
+		BCBFE27124892D1B0043AADD /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC727FBD24878EED00A4ED77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC727FB724878EED00A4ED77 = {
+			isa = PBXGroup;
+			children = (
+				BC727FC224878EED00A4ED77 /* 1st-hackathon-movie */,
+				BC727FC124878EED00A4ED77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC727FC124878EED00A4ED77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC727FC024878EED00A4ED77 /* 1st-hackathon-movie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC727FC224878EED00A4ED77 /* 1st-hackathon-movie */ = {
+			isa = PBXGroup;
+			children = (
+				BCA8FE34248885DE00672684 /* Data */,
+				BCA8FE33248885BD00672684 /* BookingInfoTap */,
+				BCA8FE32248885A000672684 /* ReviewTab */,
+				BC727FF62487D0EF00A4ED77 /* MovieInfoTab */,
+				BC727FC324878EED00A4ED77 /* AppDelegate.swift */,
+				BC727FDF2487A87C00A4ED77 /* TabBarController.swift */,
+				BC727FCC24878EF400A4ED77 /* Assets.xcassets */,
+				BC727FCE24878EF400A4ED77 /* LaunchScreen.storyboard */,
+				BC727FD124878EF400A4ED77 /* Info.plist */,
+			);
+			path = "1st-hackathon-movie";
+			sourceTree = "<group>";
+		};
+		BC727FF62487D0EF00A4ED77 /* MovieInfoTab */ = {
+			isa = PBXGroup;
+			children = (
+				BCB5CEB9248A363000D4F00C /* ChoiceViewController.swift */,
+				BCB5CEB7248A2AC000D4F00C /* MovieListCell.swift */,
+				BCB5CEB3248A294B00D4F00C /* DetailViewController.swift */,
+				BCB5CEB4248A294B00D4F00C /* MovieViewController.swift */,
+				BC727FE52487AA4E00A4ED77 /* MovieInfoTapViewController.swift */,
+				BC727FF12487B9D300A4ED77 /* MovieDetailViewController.swift */,
+				BC727FF42487C2BC00A4ED77 /* BookingViewController.swift */,
+			);
+			path = MovieInfoTab;
+			sourceTree = "<group>";
+		};
+		BCA8FE32248885A000672684 /* ReviewTab */ = {
+			isa = PBXGroup;
+			children = (
+				BC727FE92487AAC600A4ED77 /* ReviewTapViewController.swift */,
+				BCB5CEB12489DE3300D4F00C /* ReviewListTableViewCell.swift */,
+				BCBFE27124892D1B0043AADD /* WriteReviewViewController.swift */,
+				BC24D9B7248950980019C5C9 /* ReadReviewViewController.swift */,
+			);
+			path = ReviewTab;
+			sourceTree = "<group>";
+		};
+		BCA8FE33248885BD00672684 /* BookingInfoTap */ = {
+			isa = PBXGroup;
+			children = (
+				BC727FE72487AA7000A4ED77 /* BookingInfoTapViewController.swift */,
+			);
+			path = BookingInfoTap;
+			sourceTree = "<group>";
+		};
+		BCA8FE34248885DE00672684 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BC727FD724878F2C00A4ED77 /* UserData.swift */,
+				BC727FDB2487910B00A4ED77 /* MovieList.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC727FBF24878EED00A4ED77 /* 1st-hackathon-movie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC727FD424878EF400A4ED77 /* Build configuration list for PBXNativeTarget "1st-hackathon-movie" */;
+			buildPhases = (
+				BC727FBC24878EED00A4ED77 /* Sources */,
+				BC727FBD24878EED00A4ED77 /* Frameworks */,
+				BC727FBE24878EED00A4ED77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "1st-hackathon-movie";
+			productName = "1st-hackathon-movie";
+			productReference = BC727FC024878EED00A4ED77 /* 1st-hackathon-movie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC727FB824878EED00A4ED77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Woobin Cheon";
+				TargetAttributes = {
+					BC727FBF24878EED00A4ED77 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = BC727FBB24878EED00A4ED77 /* Build configuration list for PBXProject "1st-hackathon-movie" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC727FB724878EED00A4ED77;
+			productRefGroup = BC727FC124878EED00A4ED77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC727FBF24878EED00A4ED77 /* 1st-hackathon-movie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC727FBE24878EED00A4ED77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC727FD024878EF400A4ED77 /* LaunchScreen.storyboard in Resources */,
+				BC727FCD24878EF400A4ED77 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC727FBC24878EED00A4ED77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB5CEB5248A294B00D4F00C /* DetailViewController.swift in Sources */,
+				BCB5CEB6248A294B00D4F00C /* MovieViewController.swift in Sources */,
+				BCBFE27224892D1B0043AADD /* WriteReviewViewController.swift in Sources */,
+				BC727FE62487AA4E00A4ED77 /* MovieInfoTapViewController.swift in Sources */,
+				BC727FF52487C2BC00A4ED77 /* BookingViewController.swift in Sources */,
+				BCB5CEB8248A2AC000D4F00C /* MovieListCell.swift in Sources */,
+				BC727FD824878F2C00A4ED77 /* UserData.swift in Sources */,
+				BC24D9B8248950980019C5C9 /* ReadReviewViewController.swift in Sources */,
+				BCB5CEB22489DE3300D4F00C /* ReviewListTableViewCell.swift in Sources */,
+				BC727FE02487A87C00A4ED77 /* TabBarController.swift in Sources */,
+				BC727FE82487AA7000A4ED77 /* BookingInfoTapViewController.swift in Sources */,
+				BC727FF22487B9D300A4ED77 /* MovieDetailViewController.swift in Sources */,
+				BC727FDC2487910B00A4ED77 /* MovieList.swift in Sources */,
+				BC727FEA2487AAC600A4ED77 /* ReviewTapViewController.swift in Sources */,
+				BC727FC424878EED00A4ED77 /* AppDelegate.swift in Sources */,
+				BCB5CEBA248A363000D4F00C /* ChoiceViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BC727FCE24878EF400A4ED77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC727FCF24878EF400A4ED77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC727FD224878EF400A4ED77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC727FD324878EF400A4ED77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC727FD524878EF400A4ED77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5DN7MBP3R;
+				INFOPLIST_FILE = "1st-hackathon-movie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.roobing.forTestOnMyPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC727FD624878EF400A4ED77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5DN7MBP3R;
+				INFOPLIST_FILE = "1st-hackathon-movie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.roobing.forTestOnMyPhone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC727FBB24878EED00A4ED77 /* Build configuration list for PBXProject "1st-hackathon-movie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC727FD224878EF400A4ED77 /* Debug */,
+				BC727FD324878EF400A4ED77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC727FD424878EF400A4ED77 /* Build configuration list for PBXNativeTarget "1st-hackathon-movie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC727FD524878EF400A4ED77 /* Debug */,
+				BC727FD624878EF400A4ED77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC727FB824878EED00A4ED77 /* Project object */;
+}
