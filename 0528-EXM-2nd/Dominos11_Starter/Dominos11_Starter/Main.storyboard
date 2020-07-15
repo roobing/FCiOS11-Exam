@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZW-Fv-FIr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Domino's-->
+        <scene sceneID="RF0-BR-WZ6">
+            <objects>
+                <viewController storyboardIdentifier="CategoryVC" id="atO-IZ-GX6" customClass="CategoryViewController" customModule="Dominos11_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N3V-t2-h6x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DY4-nv-9RH">
+                                <rect key="frame" x="87" y="88" width="240" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="B5Q-pX-iFT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Domino's" id="uE1-Gr-Nez"/>
+                    <connections>
+                        <outlet property="logoView" destination="DY4-nv-9RH" id="7gT-cD-84S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLf-HW-Yhi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013.0434782608697" y="-291.29464285714283"/>
+        </scene>
+        <!--Product View Controller-->
+        <scene sceneID="fby-s9-CTa">
+            <objects>
+                <viewController storyboardIdentifier="ProductVC" id="V2C-JV-Bdz" customClass="ProductViewController" customModule="Dominos11_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0b1-cp-idY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="7lF-QJ-MDc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gV-h4-y0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2771" y="-291"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="cqC-Aa-NZz">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="1Im-EU-IVp" customClass="DetailViewController" customModule="Dominos11_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B0f-PZ-LJb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFZ-pb-TNw">
+                                <rect key="frame" x="87" y="630" width="240" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nf2-gC-xbg">
+                                        <rect key="frame" x="71" y="5" width="98" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-3k-fWF">
+                                        <rect key="frame" x="5" y="5" width="58" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="minusItem:" destination="1Im-EU-IVp" eventType="touchUpInside" id="NJp-zG-NFO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCx-1V-VJO">
+                                        <rect key="frame" x="177" y="5" width="55" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="plusItem:" destination="1Im-EU-IVp" eventType="touchUpInside" id="6Fv-zC-27m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3E-qP-LiF">
+                                <rect key="frame" x="0.0" y="168" width="414" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="F24-1b-bfN"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="e3E-qP-LiF" id="m49-Ma-AAn"/>
+                        <outlet property="numOfItemLabel" destination="nf2-gC-xbg" id="J1u-bx-3CE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzz-Hv-8Vc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3571.0144927536235" y="-291.29464285714283"/>
+        </scene>
+        <!--Wish List-->
+        <scene sceneID="Uym-qm-Ucp">
+            <objects>
+                <viewController storyboardIdentifier="WishListVC" id="rJX-tm-CGL" customClass="WishListViewController" customModule="Dominos11_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WPB-BO-fsB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="CFF-0s-lrn"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wish List" id="UzD-MM-1Yz">
+                        <barButtonItem key="leftBarButtonItem" title="목록 지우기" id="hYf-41-1jA">
+                            <connections>
+                                <action selector="resetButton:" destination="rJX-tm-CGL" id="TJk-vL-XnS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="주문" id="fOg-ck-P43">
+                            <connections>
+                                <action selector="orderButton:" destination="rJX-tm-CGL" id="w7u-3h-neY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trb-xM-RrB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013.0434782608697" y="505.58035714285711"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="BI5-JH-W6e">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1ZW-Fv-FIr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3SD-Av-BIG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qBB-ys-9qX" kind="relationship" relationship="viewControllers" id="ViV-Ah-rna"/>
+                        <segue destination="tdF-j3-BqZ" kind="relationship" relationship="viewControllers" id="luF-Io-y0g"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJu-WK-SkA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156.52173913043478" y="78.348214285714278"/>
+        </scene>
+        <!--Domino's-->
+        <scene sceneID="8Rp-my-3VP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qBB-ys-9qX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Domino's" id="MQi-Tb-c53"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PaW-nb-HmN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="atO-IZ-GX6" kind="relationship" relationship="rootViewController" id="PiD-Tk-UPf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUh-p8-KeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102.8985507246377" y="-291.29464285714283"/>
+        </scene>
+        <!--Wish List-->
+        <scene sceneID="uxq-3i-qpB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tdF-j3-BqZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wish List" id="1rs-mq-vn4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bGu-Rk-DnP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rJX-tm-CGL" kind="relationship" relationship="rootViewController" id="4h7-u4-9Fa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8Q-uV-YNR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102.8985507246377" y="505.58035714285711"/>
+        </scene>
+    </scenes>
+</document>
