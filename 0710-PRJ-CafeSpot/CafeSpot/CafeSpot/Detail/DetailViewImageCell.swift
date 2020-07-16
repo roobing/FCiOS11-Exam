@@ -4,7 +4,6 @@
 //
 //  Created by Woobin Cheon on 2020/07/13.
 //  Copyright © 2020 Giftbot. All rights reserved.
-// 망할 스크롤뷰
 
 import UIKit
 
