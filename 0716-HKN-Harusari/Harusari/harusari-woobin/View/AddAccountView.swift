@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddAccountViewDelegate: class {
     func dismissView()
-//    func transferTextFieldContent(_ text: String)
+    func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor
 }
 
 class AddAccountView: UIView {
@@ -28,16 +28,16 @@ class AddAccountView: UIView {
     
     let categoryTitleLabel = UILabel()
     let categoryScrollView = UIScrollView()
-    let categoryCollection = CategoryView()
+//    let categoryCollection = CategoryView()
+    var categoryButtons = [UIButton]()
+    var categoryButtonsFlag = false
+    let imageNameArray = ["bag", "cart", "creditcard", "car", "tram.fill", "airplane", "keyboard", "tv"]
     
     let detailTitleLabel = UILabel()
     let detailTextField = UITextField()
     
-    
-    
     weak var delegate: AddAccountViewDelegate?
    
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -95,9 +95,25 @@ class AddAccountView: UIView {
         categoryTitleLabel.font = UIFont.systemFont(ofSize: 40)
         
         categoryScrollView.backgroundColor = .systemTeal
-        categoryScrollView.contentSize = CGSize(width: 500, height: 200)
+//        categoryScrollView.contentSize = CGSize(width: 8 * 95, height: 200)
+        let viewWidth = UIScreen.main.bounds.width
+        categoryScrollView.contentSize = CGSize(width:viewWidth*2, height: 200)
+        categoryScrollView.isPagingEnabled = true
+//        categoryCollection.backgroundColor = .brown
         
-        categoryCollection.backgroundColor = .brown
+        for i in imageNameArray.indices {
+            let button = UIButton()
+            button.setImage(UIImage(systemName: imageNameArray[i]), for: .normal)
+            button.backgroundColor = .clear
+            button.contentMode = .scaleAspectFill
+            button.clipsToBounds = true
+            button.layer.cornerRadius = 10
+            button.layer.borderWidth = 2
+            button.layer.borderColor = UIColor.white.cgColor
+            button.tag = i
+            button.addTarget(self, action: #selector(categoryButtonDidTap(_:)), for: .touchUpInside)
+            categoryButtons.append(button)
+        }
 
         detailTitleLabel.backgroundColor = .cyan
         detailTitleLabel.text = "내역"
@@ -110,17 +126,14 @@ class AddAccountView: UIView {
         detailTextField.font = UIFont.systemFont(ofSize: 35)
         detailTextField.placeholder = "내역을 입력해주세요"
         detailTextField.tag = 1
-        
     }
     
     // MARK: - Setup Constraint
     func setupConstraint() {
-        [cancelButton, titleLabel, confirmButton, dividerView, monetaryUnitLabel, moneyTextField, moneyTitleLabel, categoryTitleLabel, categoryScrollView, categoryCollection, detailTitleLabel, detailTextField].forEach({
+        [cancelButton, titleLabel, confirmButton, dividerView, monetaryUnitLabel, moneyTextField, moneyTitleLabel, categoryTitleLabel, categoryScrollView, detailTitleLabel, detailTextField].forEach({
             self.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         })
-        
-        categoryScrollView.addSubview(categoryCollection)
         
         [cancelButton, titleLabel, confirmButton].forEach({
             NSLayoutConstraint.activate([
@@ -149,14 +162,11 @@ class AddAccountView: UIView {
             
             monetaryUnitLabel.topAnchor.constraint(equalTo: moneyTitleLabel.bottomAnchor),
             monetaryUnitLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            monetaryUnitLabel.widthAnchor.constraint(equalToConstant: 60),
-//            monetaryUnitLabel.heightAnchor.constraint(equalToConstant: 60),
             
             moneyTextField.topAnchor.constraint(equalTo: moneyTitleLabel.bottomAnchor),
             moneyTextField.leadingAnchor.constraint(equalTo: monetaryUnitLabel.trailingAnchor),
             moneyTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             moneyTextField.heightAnchor.constraint(equalTo: moneyTitleLabel.heightAnchor),
-//            moneyTextField.bottomAnchor.constraint(equalTo: categoryTitleLabel.topAnchor),
         
             categoryTitleLabel.topAnchor.constraint(equalTo: monetaryUnitLabel.bottomAnchor),
             categoryTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -165,6 +175,10 @@ class AddAccountView: UIView {
             categoryScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             categoryScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             categoryScrollView.heightAnchor.constraint(equalToConstant: 200),
+            
+//            categoryCollection.topAnchor.constraint(equalTo: categoryScrollView.contentLayoutGuide.topAnchor),
+//            categoryCollection.leadingAnchor.constraint(equalTo: categoryScrollView.contentLayoutGuide.leadingAnchor),
+//            categoryCollection.heightAnchor.constraint(equalToConstant: 200),
             
             detailTitleLabel.topAnchor.constraint(equalTo: categoryScrollView.bottomAnchor),
             detailTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -175,6 +189,42 @@ class AddAccountView: UIView {
             detailTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
+        categoryButtons.forEach({
+            categoryScrollView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.heightAnchor.constraint(equalToConstant: 85).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: 173).isActive = true
+        })
+        
+        
+        for i in categoryButtons.indices {
+            switch i % 4 {
+            case 0:
+                if i < 4 {
+                    categoryButtons[i].topAnchor.constraint(equalTo: categoryScrollView.topAnchor, constant: 10).isActive = true
+                    categoryButtons[i].leadingAnchor.constraint(equalTo: categoryScrollView.leadingAnchor, constant: 10).isActive = true
+                } else {
+                    categoryButtons[i].topAnchor.constraint(equalTo: categoryScrollView.topAnchor, constant: 10).isActive = true
+                    categoryButtons[i].leadingAnchor.constraint(equalTo: categoryButtons[i-3].trailingAnchor, constant: 20).isActive = true
+                }
+            case 1:
+                categoryButtons[i].topAnchor.constraint(equalTo: categoryScrollView.topAnchor, constant: 10).isActive = true
+                categoryButtons[i].leadingAnchor.constraint(equalTo: categoryButtons[i-1].trailingAnchor, constant: 10).isActive = true
+            case 2:
+                if i < 4 {
+                    categoryButtons[i].topAnchor.constraint(equalTo: categoryButtons[i-2].bottomAnchor, constant: 10).isActive = true
+                    categoryButtons[i].leadingAnchor.constraint(equalTo: categoryScrollView.leadingAnchor, constant: 10).isActive = true
+                } else {
+                    categoryButtons[i].topAnchor.constraint(equalTo: categoryButtons[i-2].bottomAnchor, constant: 10).isActive = true
+                    categoryButtons[i].leadingAnchor.constraint(equalTo: categoryButtons[i-3].trailingAnchor, constant: 20).isActive = true
+                }
+            case 3:
+                categoryButtons[i].topAnchor.constraint(equalTo: categoryButtons[i-2].bottomAnchor, constant: 10).isActive = true
+                categoryButtons[i].leadingAnchor.constraint(equalTo: categoryButtons[i-1].trailingAnchor, constant: 10).isActive = true
+            default:
+                break
+            }
+        }
         
     }
     
@@ -186,8 +236,13 @@ class AddAccountView: UIView {
     @objc func confirmButtonAction(_ sender: UIButton) {
         //
     }
+    
+    @objc func categoryButtonDidTap(_ sender: UIButton) {
+        categoryButtonsFlag = !categoryButtonsFlag
+        sender.backgroundColor = delegate?.changeButtonBackground(sender, categoryButtonsFlag)
+    }
 }
-
+// MARK: - UITextFieldDelegate
 extension AddAccountView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -195,7 +250,6 @@ extension AddAccountView: UITextFieldDelegate {
         switch textField.tag {
         case 0:
             if let removeAllSeparator = textField.text?.replacingOccurrences(of: numberFormatter.groupingSeparator, with: "") {
-                print(removeAllSeparator)
                 var beforeFormattedString = removeAllSeparator + string
                 if numberFormatter.number(from: string) != nil {
                     if let formattedNumber = numberFormatter.number(from: beforeFormattedString),

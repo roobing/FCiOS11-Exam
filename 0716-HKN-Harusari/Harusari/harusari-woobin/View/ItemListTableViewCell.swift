@@ -51,18 +51,14 @@ class ItemListTableViewCell: UITableViewCell {
             categoryImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             categoryImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             categoryImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-//            categoryImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            categoryImage.heightAnchor.constraint(equalToConstant: 50),
             categoryImage.widthAnchor.constraint(equalToConstant: 80),
             
             moneyLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             moneyLabel.leadingAnchor.constraint(equalTo: categoryImage.trailingAnchor, constant: 10),
-//            moneyLabel.heightAnchor.constraint(equalToConstant: 30/*(self.frame.size.height - 20) * 0.6*/),
             moneyLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
             detailLabel.topAnchor.constraint(equalTo: moneyLabel.bottomAnchor, constant: 10),
             detailLabel.leadingAnchor.constraint(equalTo: categoryImage.trailingAnchor, constant: 10),
-//            detailLabel.heightAnchor.constraint(equalToConstant: 20/*(self.frame.size.height - 20) * 0.4*/),
             detailLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             detailLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
         ])

@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-struct SpendingList {
+struct SpendingData {
+    let spendingDate: String
     let spendingCategoryImage: UIImage
     let spendingMoney: Int
     let spendingDetail: String

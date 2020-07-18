@@ -47,12 +47,17 @@ class AddAccountVC: UIViewController {
 }
 
 extension AddAccountVC: AddAccountViewDelegate {
+    func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor {
+        
+        if flag {
+            return UIColor.systemRed
+        } else {
+            return UIColor.clear
+        }
+    }
+    
     func dismissView() {
         guard let vc = presentingViewController as? AccountVC else {return}
         vc.dismiss(animated: true)
     }
-    
-//    func transferTextFieldContent(_ text: String) {
-//        <#code#>
-//    }
 }

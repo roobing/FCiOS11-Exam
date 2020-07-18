@@ -12,10 +12,6 @@ class AccountVC: UIViewController {
 
     let accountView = AccountView()
     
-    let navibarRButton = UIBarButtonItem(image: UIImage(systemName: "house"), style: .done, target: self, action: #selector(navibarRButtonAction(_:)))
-    
-    let navibarLButton = UIBarButtonItem(image: UIImage(systemName: "house"), style: .done, target: self, action: #selector(navibarLButtonAction(_:)))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         accountView.delegate = self
@@ -23,19 +19,8 @@ class AccountVC: UIViewController {
         setupConstraint()
     }
     
-    @objc func navibarRButtonAction(_ sender: UIBarButtonItem) {
-        // do something
-    }
-    
-    @objc func navibarLButtonAction(_ sender: UIBarButtonItem) {
-        // do something
-    }
-    
     func setupUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "가계부 화면"
-        navigationItem.rightBarButtonItem = navibarRButton
-        navigationItem.leftBarButtonItem = navibarLButton
     }
     
     func setupConstraint() {
@@ -51,11 +36,7 @@ class AccountVC: UIViewController {
             accountView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             accountView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
-        
-        
     }
-    
-
 }
 extension AccountVC: PresentDelegate {
     func presentView() {

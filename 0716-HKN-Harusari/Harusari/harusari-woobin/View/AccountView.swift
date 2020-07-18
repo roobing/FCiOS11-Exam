@@ -16,9 +16,10 @@ protocol PresentDelegate: class {
 class AccountView: UIView {
     
     let calendar = FSCalendar()
-    var selectedDate = 0
+    var selectedDate = ""
+    var spendingDataList = [SpendingData]()
 
-     let dividerView1 = UIView()
+    let dividerView1 = UIView()
     
     let moneyTitleLabel = UILabel()
     let moneyValueLabel = UILabel()
@@ -137,21 +138,21 @@ class AccountView: UIView {
 
 extension AccountView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        spendingDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.idendifier, for: indexPath) as? ItemListTableViewCell else { return UITableViewCell()}
-        switch selectedDate {
-        case 1:
-            cell.setupUI(UIImage(systemName: "flame")!, 2000, "테스트1")
-        case 2:
-            cell.setupUI(UIImage(systemName: "bolt")!, 3000, "테스트2")
-        case 3:
-            cell.setupUI(UIImage(systemName: "ant")!, 4000, "테스트2")
-        default:
-            break
-        }
+//        switch selectedDate {
+//        case 1:
+//            cell.setupUI(UIImage(systemName: "flame")!, 2000, "테스트1")
+//        case 2:
+//            cell.setupUI(UIImage(systemName: "bolt")!, 3000, "테스트2")
+//        case 3:
+//            cell.setupUI(UIImage(systemName: "ant")!, 4000, "테스트2")
+//        default:
+//            break
+//        }
         
         return cell
     }
@@ -161,7 +162,11 @@ extension AccountView: UITableViewDataSource {
 
 extension AccountView: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDate = [1, 2, 3].randomElement() ?? 0
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.locale = Locale(identifier: "ko-KR")
+        selectedDate = formatter.string(from: date)
+        print(selectedDate)
         itemListTabelView.reloadData()
     }
 }

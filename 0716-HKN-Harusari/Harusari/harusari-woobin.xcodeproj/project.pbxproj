@@ -17,7 +17,6 @@
 		BCA4095C24C0264C008C6CE0 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4095B24C0264C008C6CE0 /* AccountView.swift */; };
 		BCA4096024C02B65008C6CE0 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4095F24C02B65008C6CE0 /* AccountVC.swift */; };
 		BCF50D1624C18BB100EF5877 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF50D1524C18BB100EF5877 /* ItemListTableViewCell.swift */; };
-		BCF50D1824C1A2F200EF5877 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF50D1724C1A2F200EF5877 /* CategoryView.swift */; };
 		BCF50D1B24C1FBC300EF5877 /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF50D1A24C1FBC300EF5877 /* AccountData.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +34,6 @@
 		BCA4095B24C0264C008C6CE0 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		BCA4095F24C02B65008C6CE0 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		BCF50D1524C18BB100EF5877 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
-		BCF50D1724C1A2F200EF5877 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		BCF50D1A24C1FBC300EF5877 /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		E7BACC6286002B2DDD05A252 /* Pods-harusari-woobin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusari-woobin.debug.xcconfig"; path = "Target Support Files/Pods-harusari-woobin/Pods-harusari-woobin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +97,6 @@
 				BCA4095B24C0264C008C6CE0 /* AccountView.swift */,
 				BCF50D1524C18BB100EF5877 /* ItemListTableViewCell.swift */,
 				BC3E6C7C24C0A31D00E61527 /* AddAccountView.swift */,
-				BCF50D1724C1A2F200EF5877 /* CategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3E6C7524C0432D00E61527 /* AddAccountVC.swift in Sources */,
-				BCF50D1824C1A2F200EF5877 /* CategoryView.swift in Sources */,
 				BCA4095C24C0264C008C6CE0 /* AccountView.swift in Sources */,
 				BCF50D1B24C1FBC300EF5877 /* AccountData.swift in Sources */,
 				BCF50D1624C18BB100EF5877 /* ItemListTableViewCell.swift in Sources */,
