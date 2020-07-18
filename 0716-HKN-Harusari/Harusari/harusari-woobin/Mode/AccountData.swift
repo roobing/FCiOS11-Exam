@@ -15,3 +15,10 @@ struct SpendingData {
     let spendingMoney: Int
     let spendingDetail: String
 }
+
+var testData: [String : Any] = [
+    "date" : [
+    "categoryImage" : "cart",
+    "money" : 1000,
+    "detail" : "테스트 데이터 입니다"]
+]

@@ -165,7 +165,8 @@ extension AccountView: FSCalendarDelegate, FSCalendarDataSource {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.locale = Locale(identifier: "ko-KR")
-        selectedDate = formatter.string(from: date)
+//        selectedDate = formatter.string(from: date)
+        test["date"] = formatter.string(from: date)
         print(selectedDate)
         itemListTabelView.reloadData()
     }

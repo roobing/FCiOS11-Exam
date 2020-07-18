@@ -15,6 +15,8 @@ protocol AddAccountViewDelegate: class {
 
 class AddAccountView: UIView {
     
+    var testDateList: [spend]
+    
     let cancelButton = UIButton()
     let titleLabel = UILabel()
     let confirmButton = UIButton()
