@@ -14,7 +14,6 @@ class AddAccountVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addAccountView.delegate = self
         setupUI()
         setupConstraint()
@@ -25,7 +24,7 @@ class AddAccountVC: UIViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         
-        addAccountView.backgroundColor = .lightGray
+//        addAccountView.backgroundColor = .lightGray
         
         view.addSubview(addAccountView)
     }
@@ -47,9 +46,11 @@ class AddAccountVC: UIViewController {
 }
 
 extension AddAccountVC: AddAccountViewDelegate {
+    
+    
     func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor {
         if flag {
-            return UIColor.systemRed
+            return UIColor.systemGreen
         } else {
             return UIColor.clear
         }
@@ -57,17 +58,29 @@ extension AddAccountVC: AddAccountViewDelegate {
     
     func dismissView() {
         guard let vc = presentingViewController as? AccountVC else {return}
+        let numFormatter = NumberFormatter()
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 3
+        numFormatter.numberStyle = .decimal
+        vc.accountView.moneyValueLabel.text = "₩ \((numFormatter.string(from: NSNumber(value: totalMoney[selectedDate] ?? 0))) ?? "0")"
+        vc.accountView.itemListTabelView.reloadData()
         vc.dismiss(animated: true)
     }
     
-    func spendingInfoTransfer(_ money: Int, _ category: String, _ memo: String) {
+    func spendingInfoTransfer(_ category: String, _ money: Int, _ memo: String) {
         let tempStruct = SpendingData(spendingCategoryImage: category, spendingMoney: money, spendingDetail: memo)
         spendingDataList.append(tempStruct)
-        spendingDataInfo.updateValue(spendingDataList, forKey: todayDate)
+        spendingDataInfo.updateValue(spendingDataList, forKey: selectedDate)
     }
     
-    func makeAlert() {
-        let alertControl = UIAlertController(title: "경고", message: "잔액부족", preferredStyle: .alert)
+    func calculateTotalMoney(_ money: Int) {
+        guard var temp = totalMoney[selectedDate] else { fatalError("calculate total money error")}
+        temp = temp - money
+        totalMoney.updateValue(temp, forKey: selectedDate)
+    }
+    
+    func makeAlert(_ message: String) {
+        let alertControl = UIAlertController(title: "경고", message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         
         alertControl.addAction(confirmAction)

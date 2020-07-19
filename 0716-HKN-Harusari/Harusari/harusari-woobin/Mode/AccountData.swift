@@ -14,13 +14,12 @@ struct SpendingData {
     let spendingMoney: Int
     let spendingDetail: String
 }
-
 var spendingDataList = [SpendingData]()
-
-var totalMoney = 10000
-
 var spendingDataInfo = [String : [SpendingData]]()
 
-var todayDate = ""
+var moneyFromRoulette = 10000
+var mileage = 0
+var totalMoney = [String : Int]()
 var selectedDate = ""
 
+let imageNameArray = ["bag", "cart", "creditcard", "car", "tram.fill", "airplane", "keyboard", "tv"]

@@ -27,17 +27,17 @@ class ItemListTableViewCell: UITableViewCell {
     }
     
     // MARK: - Setup UI
-    func setupUI(with todayDate: String, index indexRow: Int) {
-        let tempList = spendingDataInfo[todayDate] ?? [SpendingData]()
-        categoryImage.backgroundColor = .brown
+    func setupUI(with date: String, index indexRow: Int) {
+        let tempList = spendingDataInfo[date] ?? [SpendingData]()
+        categoryImage.backgroundColor = .systemGreen
         categoryImage.image = UIImage(systemName: tempList[indexRow].spendingCategoryImage)
         categoryImage.contentMode = .scaleAspectFit
         
-        moneyLabel.backgroundColor = .systemOrange
+        moneyLabel.backgroundColor = .systemGreen
         moneyLabel.font = UIFont.systemFont(ofSize: 20)
         moneyLabel.text = "₩ \(tempList[indexRow].spendingMoney)"
         
-        detailLabel.backgroundColor = .systemTeal
+        detailLabel.backgroundColor = .systemGreen
         detailLabel.text = tempList[indexRow].spendingDetail
         
     }

@@ -11,33 +11,44 @@ import UIKit
 class AccountVC: UIViewController {
 
     let accountView = AccountView()
+    let dateFormatter = DateFormatter()
     
+    var prevSpendingDataCount = 0
+    
+    // test data for previous date
     var testDataList = [SpendingData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         accountView.delegate = self
+        
         setupUI()
         setupConstraint()
-        // test data for previous date
+        
+        // <=== test data for previous date
         for _ in 1...3 {
-            testDataList.append( SpendingData(spendingCategoryImage: "bolt", spendingMoney: 1000, spendingDetail: "테스트 데이터"))
+            testDataList.append( SpendingData(spendingCategoryImage: "bolt", spendingMoney: 1000, spendingDetail: "테스트 데이터1"))
         }
-       
         spendingDataInfo.updateValue(testDataList, forKey: "2020. 7. 18.")
+        totalMoney.updateValue(1000, forKey: "2020. 7. 18.")
+        testDataList.removeAll()
+        for _ in 1...3 {
+            testDataList.append( SpendingData(spendingCategoryImage: "flame", spendingMoney: 2000, spendingDetail: "테스트 데이터2"))
+        }
+        spendingDataInfo.updateValue(testDataList, forKey: "2020. 7. 19.")
+        totalMoney.updateValue(5000, forKey: "2020. 7. 19.")
+        // ===>
+        
+        sumMileage()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
-        if spendingDataList.isEmpty {
-            // do nothing
-        } else {
-            let index = spendingDataList.count - 1
-            totalMoney = totalMoney - spendingDataList[index].spendingMoney
-            print("totlaMoney: \(totalMoney), at \(#function)")
-            accountView.setupUI(with: totalMoney)
-            accountView.itemListTabelView.reloadData()
+    func sumMileage() {
+        var totalMileage = 0
+        for (_,value) in totalMoney {
+            totalMileage += value
         }
+        totalMileage = totalMileage - (totalMoney[selectedDate] ?? 0)
+        mileage = totalMileage
     }
     
     func setupUI() {
@@ -59,11 +70,15 @@ class AccountVC: UIViewController {
         ])
     }
 }
-extension AccountVC: PresentDelegate {
+extension AccountVC: AccountViewDelegate {
+    
+    func changeDate(to date: String) {
+        selectedDate = date
+    }
     
     func presentView() {
         let vc = AddAccountVC()
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .automatic
         present(vc, animated: true)
     }
 }

@@ -11,8 +11,9 @@ import UIKit
 protocol AddAccountViewDelegate: class {
     func dismissView()
     func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor
-    func spendingInfoTransfer(_ money: Int, _ category: String, _ memo: String)
-    func makeAlert()
+    func spendingInfoTransfer(_ category: String, _ money: Int, _ memo: String)
+    func calculateTotalMoney(_ money: Int)
+    func makeAlert(_ message: String)
 }
 
 class AddAccountView: UIView {
@@ -30,10 +31,8 @@ class AddAccountView: UIView {
     
     let categoryTitleLabel = UILabel()
     let categoryScrollView = UIScrollView()
-//    let categoryCollection = CategoryView()
     var categoryButtons = [UIButton]()
     var categoryButtonsFlag = false
-    let imageNameArray = ["bag", "cart", "creditcard", "car", "tram.fill", "airplane", "keyboard", "tv"]
     
     let detailTitleLabel = UILabel()
     let detailTextField = UITextField()
@@ -57,32 +56,37 @@ class AddAccountView: UIView {
     
     // MARK: - Setup UI
     func setupUI() {
-        cancelButton.backgroundColor = .systemBlue
+//        cancelButton.backgroundColor = .systemGreen
         cancelButton.setTitle("취소", for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        cancelButton.titleLabel?.backgroundColor = .systemGreen
+        cancelButton.setTitleColor(.black, for: .normal)
         cancelButton.addTarget(self, action: #selector(cancelButtonAction(_:)), for: .touchUpInside)
         
-        titleLabel.backgroundColor = .systemRed
+//        titleLabel.backgroundColor = .systemGreen
         titleLabel.text = "내역 추가"
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         
-        confirmButton.backgroundColor = .systemBlue
+//        confirmButton.backgroundColor = .systemBlue
         confirmButton.setTitle("확인", for: .normal)
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        confirmButton.titleLabel?.backgroundColor = .systemGreen
+        confirmButton.setTitleColor(.black, for: .normal)
         confirmButton.addTarget(self, action: #selector(confirmButtonAction(_:)), for: .touchUpInside)
         
         dividerView.backgroundColor = .green
         
-        moneyTitleLabel.backgroundColor = .cyan
+        moneyTitleLabel.backgroundColor = .systemGreen
         moneyTitleLabel.text = "금액"
-        moneyTitleLabel.font = UIFont.systemFont(ofSize: 40)
+        moneyTitleLabel.font = UIFont.systemFont(ofSize: 35)
         
         moneyTextField.delegate = self
         moneyTextField.keyboardType = .numberPad
-        moneyTextField.backgroundColor = .systemTeal
+//        moneyTextField.backgroundColor = .systemTeal
         moneyTextField.textAlignment = .right
-        moneyTextField.font = UIFont.systemFont(ofSize: 35)
+        moneyTextField.font = UIFont.systemFont(ofSize: 30)
+        moneyTextField.clearButtonMode = .always
         moneyTextField.placeholder = "금액 입력"
         moneyTextField.tag = 0
         
@@ -91,46 +95,47 @@ class AddAccountView: UIView {
         numberFormatter.minimumFractionDigits = 0
         numberFormatter.maximumFractionDigits = 3
         
-        monetaryUnitLabel.backgroundColor = .systemOrange
+//        monetaryUnitLabel.backgroundColor = .systemOrange
         monetaryUnitLabel.text = "₩"
         monetaryUnitLabel.textAlignment = .center
-        monetaryUnitLabel.font = UIFont.systemFont(ofSize: 35)
+        monetaryUnitLabel.font = UIFont.systemFont(ofSize: 30)
         
-        categoryTitleLabel.backgroundColor = .cyan
+        categoryTitleLabel.backgroundColor = .systemGreen
         categoryTitleLabel.text = "카테고리"
-        categoryTitleLabel.font = UIFont.systemFont(ofSize: 40)
+        categoryTitleLabel.font = UIFont.systemFont(ofSize: 35)
         
-        categoryScrollView.backgroundColor = .systemTeal
-//        categoryScrollView.contentSize = CGSize(width: 8 * 95, height: 200)
+//        categoryScrollView.backgroundColor = .systemTeal
         let viewWidth = UIScreen.main.bounds.width
         categoryScrollView.contentSize = CGSize(width:viewWidth*2, height: 200)
         categoryScrollView.isPagingEnabled = true
-//        categoryCollection.backgroundColor = .brown
         
         for i in imageNameArray.indices {
             let button = UIButton()
             button.setImage(UIImage(systemName: imageNameArray[i]), for: .normal)
+            button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 60), forImageIn: .normal)
+            button.tintColor = .darkGray
             button.backgroundColor = .clear
             button.contentMode = .scaleAspectFill
             button.clipsToBounds = true
             button.layer.cornerRadius = 10
-            button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor.white.cgColor
+//            button.layer.borderWidth = 2
+//            button.layer.borderColor = UIColor.green.cgColor
             button.tag = i
             button.addTarget(self, action: #selector(categoryButtonDidTap(_:)), for: .touchUpInside)
             categoryButtons.append(button)
         }
 
-        detailTitleLabel.backgroundColor = .cyan
+        detailTitleLabel.backgroundColor = .systemGreen
         detailTitleLabel.text = "내역"
-        detailTitleLabel.font = UIFont.systemFont(ofSize: 40)
+        detailTitleLabel.font = UIFont.systemFont(ofSize: 35)
         
         detailTextField.delegate = self
         detailTextField.keyboardType = .default
         detailTextField.autocorrectionType = .no
-        detailTextField.backgroundColor = .systemTeal
-        detailTextField.font = UIFont.systemFont(ofSize: 35)
+//        detailTextField.backgroundColor = .systemTeal
+        detailTextField.font = UIFont.systemFont(ofSize: 30)
         detailTextField.placeholder = "내역을 입력해주세요"
+        detailTextField.clearButtonMode = .always
         detailTextField.tag = 1
     }
     
@@ -163,11 +168,11 @@ class AddAccountView: UIView {
             dividerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             dividerView.heightAnchor.constraint(equalToConstant: 3),
             
-            moneyTitleLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor),
-            moneyTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            moneyTitleLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 10),
+            moneyTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             
             monetaryUnitLabel.topAnchor.constraint(equalTo: moneyTitleLabel.bottomAnchor),
-            monetaryUnitLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            monetaryUnitLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             
             moneyTextField.topAnchor.constraint(equalTo: moneyTitleLabel.bottomAnchor),
             moneyTextField.leadingAnchor.constraint(equalTo: monetaryUnitLabel.trailingAnchor),
@@ -175,7 +180,7 @@ class AddAccountView: UIView {
             moneyTextField.heightAnchor.constraint(equalTo: moneyTitleLabel.heightAnchor),
         
             categoryTitleLabel.topAnchor.constraint(equalTo: monetaryUnitLabel.bottomAnchor),
-            categoryTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            categoryTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             
             categoryScrollView.topAnchor.constraint(equalTo: categoryTitleLabel.bottomAnchor),
             categoryScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -183,10 +188,10 @@ class AddAccountView: UIView {
             categoryScrollView.heightAnchor.constraint(equalToConstant: 200),
             
             detailTitleLabel.topAnchor.constraint(equalTo: categoryScrollView.bottomAnchor),
-            detailTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            detailTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             
             detailTextField.topAnchor.constraint(equalTo: detailTitleLabel.bottomAnchor),
-            detailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            detailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             detailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             detailTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
@@ -236,11 +241,16 @@ class AddAccountView: UIView {
     }
     
     @objc func confirmButtonAction(_ sender: UIButton) {
-        if totalMoney - money < 0 {
-            delegate?.makeAlert()
+        guard var temp = totalMoney[selectedDate] else { fatalError("calculate total money error")}
+         temp = temp - money
+        if temp < 0 {
+            delegate?.makeAlert("잔액 부족")
+        } else if money == nil || categoryButtonsFlag == false || memo == nil {
+            delegate?.makeAlert("항목을 모두 작성해주세요")
         } else {
-            delegate?.spendingInfoTransfer(money, categoryImageName, memo)
-            print("\(spendingDataList) at \(#function)")
+            // 카테고리 이미지(String), 사용 금액(Int), 내역(String)을 갖는 구조체 생성을 VC에 위임
+            delegate?.spendingInfoTransfer(categoryImageName, money, memo)
+            delegate?.calculateTotalMoney(money)
             delegate?.dismissView()
         }
     }
@@ -248,7 +258,6 @@ class AddAccountView: UIView {
     @objc func categoryButtonDidTap(_ sender: UIButton) {
         categoryButtonsFlag = !categoryButtonsFlag
         categoryImageName = imageNameArray[sender.tag]
-        print(categoryImageName)
         sender.backgroundColor = delegate?.changeButtonBackground(sender, categoryButtonsFlag)
     }
 }
@@ -265,7 +274,6 @@ extension AddAccountView: UITextFieldDelegate {
                     if let formattedNumber = numberFormatter.number(from: beforeFormattedString),
                         let formattedString = numberFormatter.string(from: formattedNumber) {
                         money = Int(beforeFormattedString) ?? 0
-                        print("\(money) at \(#function)")
                         textField.text = formattedString
                         result = false
                     }
@@ -276,7 +284,6 @@ extension AddAccountView: UITextFieldDelegate {
                         if let formattedNumber = numberFormatter.number(from: beforeFormattedString),
                             let formattedString = numberFormatter.string(from: formattedNumber) {
                             money = Int(beforeFormattedString) ?? 0
-                            print("\(money) at \(#function)")
                             textField.text = formattedString
                             result = false
                         }
