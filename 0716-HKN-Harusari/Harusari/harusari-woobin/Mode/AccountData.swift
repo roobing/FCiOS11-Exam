@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 struct SpendingData {
-    let spendingDate: String
-    let spendingCategoryImage: UIImage
+    let spendingCategoryImage: String
     let spendingMoney: Int
     let spendingDetail: String
 }
 
-var testData: [String : Any] = [
-    "date" : [
-    "categoryImage" : "cart",
-    "money" : 1000,
-    "detail" : "테스트 데이터 입니다"]
-]
+var spendingDataList = [SpendingData]()
+
+var totalMoney = 10000
+
+var spendingDataInfo = [String : [SpendingData]]()
+
+var todayDate = ""
+var selectedDate = ""
+

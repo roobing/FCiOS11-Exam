@@ -48,7 +48,6 @@ class AddAccountVC: UIViewController {
 
 extension AddAccountVC: AddAccountViewDelegate {
     func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor {
-        
         if flag {
             return UIColor.systemRed
         } else {
@@ -59,5 +58,19 @@ extension AddAccountVC: AddAccountViewDelegate {
     func dismissView() {
         guard let vc = presentingViewController as? AccountVC else {return}
         vc.dismiss(animated: true)
+    }
+    
+    func spendingInfoTransfer(_ money: Int, _ category: String, _ memo: String) {
+        let tempStruct = SpendingData(spendingCategoryImage: category, spendingMoney: money, spendingDetail: memo)
+        spendingDataList.append(tempStruct)
+        spendingDataInfo.updateValue(spendingDataList, forKey: todayDate)
+    }
+    
+    func makeAlert() {
+        let alertControl = UIAlertController(title: "경고", message: "잔액부족", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alertControl.addAction(confirmAction)
+        present(alertControl, animated: true)
     }
 }

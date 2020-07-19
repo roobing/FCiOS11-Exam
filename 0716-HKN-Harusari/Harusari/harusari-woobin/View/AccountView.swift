@@ -17,12 +17,14 @@ class AccountView: UIView {
     
     let calendar = FSCalendar()
     var selectedDate = ""
-    var spendingDataList = [SpendingData]()
+    let dateFormatter = DateFormatter()
+    var selectTodayFlag = false
 
     let dividerView1 = UIView()
     
     let moneyTitleLabel = UILabel()
     let moneyValueLabel = UILabel()
+    let numFormatter = NumberFormatter()
     
     let dividerView2 = UIView()
     
@@ -38,10 +40,12 @@ class AccountView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        setupUI()
+        print(#function)
+        setupUI(with: totalMoney)
         setupConstraint()
     }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -50,9 +54,12 @@ class AccountView: UIView {
     
     
     // MARK: - Setup UI
-    func setupUI() {
+    func setupUI(with totalMoney: Int) {
         calendar.dataSource = self
         calendar.delegate = self
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale(identifier: "ko-KR")
+        todayDate = dateFormatter.string(from: calendar.selectedDate ?? Date())
         
         dividerView1.backgroundColor = .gray
         
@@ -61,12 +68,16 @@ class AccountView: UIView {
         moneyTitleLabel.textColor = .white
         moneyTitleLabel.text = "남은 금액"
         
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 3
+        numFormatter.numberStyle = .decimal
         moneyValueLabel.backgroundColor = .systemPink
         moneyValueLabel.layer.cornerRadius = moneyValueLabel.frame.width / 2
         moneyValueLabel.font = UIFont.systemFont(ofSize: 40)
         moneyValueLabel.textColor = .white
         moneyValueLabel.textAlignment = .right
-        moneyValueLabel.text = "₩ 100,000"
+        print("totlaMoney: \(totalMoney)at \(#function)")
+        moneyValueLabel.text = "₩ \((numFormatter.string(from: NSNumber(value: totalMoney))) ?? "0")"
         
         dividerView2.backgroundColor = .gray
         
@@ -132,27 +143,31 @@ class AccountView: UIView {
     // MARK: - Selector
     @objc func addAccountList(_ sender: UIButton) {
         // present add Account VC delegate
-        delegate?.presentView()
+        if selectTodayFlag == true {
+            delegate?.presentView()
+        } else {
+            // do nothing
+        }
     }
 }
 
 extension AccountView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        spendingDataList.count
+        if selectTodayFlag == true {
+            return (spendingDataInfo[todayDate] ?? [SpendingData]()).count
+        } else {
+            return (spendingDataInfo[selectedDate] ?? [SpendingData]()).count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.idendifier, for: indexPath) as? ItemListTableViewCell else { return UITableViewCell()}
-//        switch selectedDate {
-//        case 1:
-//            cell.setupUI(UIImage(systemName: "flame")!, 2000, "테스트1")
-//        case 2:
-//            cell.setupUI(UIImage(systemName: "bolt")!, 3000, "테스트2")
-//        case 3:
-//            cell.setupUI(UIImage(systemName: "ant")!, 4000, "테스트2")
-//        default:
-//            break
-//        }
+        if selectTodayFlag == true {
+            cell.setupUI(with: todayDate, index: indexPath.row)
+        } else {
+            cell.setupUI(with: selectedDate, index: indexPath.row)
+        }
         
         return cell
     }
@@ -162,11 +177,13 @@ extension AccountView: UITableViewDataSource {
 
 extension AccountView: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.locale = Locale(identifier: "ko-KR")
 //        selectedDate = formatter.string(from: date)
-        test["date"] = formatter.string(from: date)
+        selectedDate = dateFormatter.string(from: date)
+        if selectedDate == todayDate {
+            selectTodayFlag = true
+        } else {
+            selectTodayFlag = false
+        }
         print(selectedDate)
         itemListTabelView.reloadData()
     }

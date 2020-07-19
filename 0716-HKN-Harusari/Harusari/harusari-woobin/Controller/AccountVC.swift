@@ -12,11 +12,32 @@ class AccountVC: UIViewController {
 
     let accountView = AccountView()
     
+    var testDataList = [SpendingData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         accountView.delegate = self
         setupUI()
         setupConstraint()
+        // test data for previous date
+        for _ in 1...3 {
+            testDataList.append( SpendingData(spendingCategoryImage: "bolt", spendingMoney: 1000, spendingDetail: "테스트 데이터"))
+        }
+       
+        spendingDataInfo.updateValue(testDataList, forKey: "2020. 7. 18.")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        if spendingDataList.isEmpty {
+            // do nothing
+        } else {
+            let index = spendingDataList.count - 1
+            totalMoney = totalMoney - spendingDataList[index].spendingMoney
+            print("totlaMoney: \(totalMoney), at \(#function)")
+            accountView.setupUI(with: totalMoney)
+            accountView.itemListTabelView.reloadData()
+        }
     }
     
     func setupUI() {
@@ -39,9 +60,10 @@ class AccountVC: UIViewController {
     }
 }
 extension AccountVC: PresentDelegate {
+    
     func presentView() {
         let vc = AddAccountVC()
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
 }

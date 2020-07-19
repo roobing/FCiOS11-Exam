@@ -18,7 +18,7 @@ class ItemListTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI(UIImage(systemName: "xmark.square")!, 0, "내용 없음")
+//        setupUI(UIImage(systemName: "xmark.square")!, 0, "내용 없음")
         setupConstraint()
     }
     
@@ -27,17 +27,18 @@ class ItemListTableViewCell: UITableViewCell {
     }
     
     // MARK: - Setup UI
-    func setupUI(_ image: UIImage, _ money: Int, _ detail: String) {
+    func setupUI(with todayDate: String, index indexRow: Int) {
+        let tempList = spendingDataInfo[todayDate] ?? [SpendingData]()
         categoryImage.backgroundColor = .brown
-        categoryImage.image = image
+        categoryImage.image = UIImage(systemName: tempList[indexRow].spendingCategoryImage)
         categoryImage.contentMode = .scaleAspectFit
         
         moneyLabel.backgroundColor = .systemOrange
         moneyLabel.font = UIFont.systemFont(ofSize: 20)
-        moneyLabel.text = "₩ \(money)"
+        moneyLabel.text = "₩ \(tempList[indexRow].spendingMoney)"
         
         detailLabel.backgroundColor = .systemTeal
-        detailLabel.text = detail
+        detailLabel.text = tempList[indexRow].spendingDetail
         
     }
     

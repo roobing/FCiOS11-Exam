@@ -11,11 +11,11 @@ import UIKit
 protocol AddAccountViewDelegate: class {
     func dismissView()
     func changeButtonBackground(_ sender: UIButton, _ flag: Bool) -> UIColor
+    func spendingInfoTransfer(_ money: Int, _ category: String, _ memo: String)
+    func makeAlert()
 }
 
 class AddAccountView: UIView {
-    
-    var testDateList: [spend]
     
     let cancelButton = UIButton()
     let titleLabel = UILabel()
@@ -37,6 +37,10 @@ class AddAccountView: UIView {
     
     let detailTitleLabel = UILabel()
     let detailTextField = UITextField()
+    
+    var categoryImageName = ""
+    var money = 0
+    var memo = ""
     
     weak var delegate: AddAccountViewDelegate?
    
@@ -178,10 +182,6 @@ class AddAccountView: UIView {
             categoryScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             categoryScrollView.heightAnchor.constraint(equalToConstant: 200),
             
-//            categoryCollection.topAnchor.constraint(equalTo: categoryScrollView.contentLayoutGuide.topAnchor),
-//            categoryCollection.leadingAnchor.constraint(equalTo: categoryScrollView.contentLayoutGuide.leadingAnchor),
-//            categoryCollection.heightAnchor.constraint(equalToConstant: 200),
-            
             detailTitleLabel.topAnchor.constraint(equalTo: categoryScrollView.bottomAnchor),
             detailTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             
@@ -236,11 +236,19 @@ class AddAccountView: UIView {
     }
     
     @objc func confirmButtonAction(_ sender: UIButton) {
-        //
+        if totalMoney - money < 0 {
+            delegate?.makeAlert()
+        } else {
+            delegate?.spendingInfoTransfer(money, categoryImageName, memo)
+            print("\(spendingDataList) at \(#function)")
+            delegate?.dismissView()
+        }
     }
     
     @objc func categoryButtonDidTap(_ sender: UIButton) {
         categoryButtonsFlag = !categoryButtonsFlag
+        categoryImageName = imageNameArray[sender.tag]
+        print(categoryImageName)
         sender.backgroundColor = delegate?.changeButtonBackground(sender, categoryButtonsFlag)
     }
 }
@@ -256,6 +264,8 @@ extension AddAccountView: UITextFieldDelegate {
                 if numberFormatter.number(from: string) != nil {
                     if let formattedNumber = numberFormatter.number(from: beforeFormattedString),
                         let formattedString = numberFormatter.string(from: formattedNumber) {
+                        money = Int(beforeFormattedString) ?? 0
+                        print("\(money) at \(#function)")
                         textField.text = formattedString
                         result = false
                     }
@@ -265,6 +275,8 @@ extension AddAccountView: UITextFieldDelegate {
                         beforeFormattedString = String(beforeFormattedString[..<lastIndex])
                         if let formattedNumber = numberFormatter.number(from: beforeFormattedString),
                             let formattedString = numberFormatter.string(from: formattedNumber) {
+                            money = Int(beforeFormattedString) ?? 0
+                            print("\(money) at \(#function)")
                             textField.text = formattedString
                             result = false
                         }
@@ -273,12 +285,18 @@ extension AddAccountView: UITextFieldDelegate {
                     }
                 }
             }
-        case 1:
-            result = true
-            
         default:
             result = true
         }
         return result
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        switch textField.tag {
+        case 1:
+            memo = textField.text ?? ""
+        default:
+            break
+        }
     }
 }
