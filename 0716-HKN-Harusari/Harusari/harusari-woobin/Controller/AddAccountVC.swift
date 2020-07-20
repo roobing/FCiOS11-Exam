@@ -11,6 +11,7 @@ import UIKit
 class AddAccountVC: UIViewController {
     
     let addAccountView = AddAccountView()
+    let bottomBlock = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,10 @@ class AddAccountVC: UIViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         
-//        addAccountView.backgroundColor = .lightGray
-        
-        view.addSubview(addAccountView)
+        [addAccountView, bottomBlock].forEach({
+            $0.backgroundColor = UIColor(rgb: 0xc4e8bf)
+            self.view.addSubview($0)
+        })
     }
     
     // MARK: - Setup Constraint
@@ -34,13 +36,19 @@ class AddAccountVC: UIViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         addAccountView.translatesAutoresizingMaskIntoConstraints = false
+        bottomBlock.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             
             addAccountView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             addAccountView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             addAccountView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            addAccountView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -260)
+            addAccountView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -260), // -260
+            
+            bottomBlock.topAnchor.constraint(equalTo: addAccountView.bottomAnchor),
+            bottomBlock.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            bottomBlock.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            bottomBlock.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

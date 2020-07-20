@@ -77,7 +77,7 @@ class AddAccountView: UIView {
         
         dividerView.backgroundColor = .green
         
-        moneyTitleLabel.backgroundColor = .systemGreen
+        moneyTitleLabel.backgroundColor = UIColor(rgb: 0x017831)
         moneyTitleLabel.text = "금액"
         moneyTitleLabel.font = UIFont.systemFont(ofSize: 35)
         
@@ -100,7 +100,7 @@ class AddAccountView: UIView {
         monetaryUnitLabel.textAlignment = .center
         monetaryUnitLabel.font = UIFont.systemFont(ofSize: 30)
         
-        categoryTitleLabel.backgroundColor = .systemGreen
+        categoryTitleLabel.backgroundColor = UIColor(rgb: 0x12b71a)
         categoryTitleLabel.text = "카테고리"
         categoryTitleLabel.font = UIFont.systemFont(ofSize: 35)
         
@@ -125,7 +125,7 @@ class AddAccountView: UIView {
             categoryButtons.append(button)
         }
 
-        detailTitleLabel.backgroundColor = .systemGreen
+        detailTitleLabel.backgroundColor = UIColor(rgb: 0xc4e8bf)
         detailTitleLabel.text = "내역"
         detailTitleLabel.font = UIFont.systemFont(ofSize: 35)
         

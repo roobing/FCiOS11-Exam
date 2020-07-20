@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		57BF16862E5480EF393C2AD6 /* Pods_harusari_woobin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCF3B3C71AD7C8D6885A226 /* Pods_harusari_woobin.framework */; };
+		BC153BC124C5470600BF05CB /* BMEULJIRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC153BC024C5470600BF05CB /* BMEULJIRO.otf */; };
+		BC153BC324C5493100BF05CB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC153BC224C5493100BF05CB /* Extension.swift */; };
 		BC3E6C7524C0432D00E61527 /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E6C7424C0432D00E61527 /* AddAccountVC.swift */; };
 		BC3E6C7D24C0A31D00E61527 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E6C7C24C0A31D00E61527 /* AddAccountView.swift */; };
 		BCA4094824C01FBC008C6CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4094724C01FBC008C6CE0 /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		6CCF3B3C71AD7C8D6885A226 /* Pods_harusari_woobin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusari_woobin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93211E3D5A79C60B4043CBA1 /* Pods-harusari-woobin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusari-woobin.release.xcconfig"; path = "Target Support Files/Pods-harusari-woobin/Pods-harusari-woobin.release.xcconfig"; sourceTree = "<group>"; };
+		BC153BC024C5470600BF05CB /* BMEULJIRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMEULJIRO.otf; sourceTree = "<group>"; };
+		BC153BC224C5493100BF05CB /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BC3E6C7424C0432D00E61527 /* AddAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAccountVC.swift; path = "harusari-woobin/Controller/AddAccountVC.swift"; sourceTree = SOURCE_ROOT; };
 		BC3E6C7C24C0A31D00E61527 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		BCA4094424C01FBC008C6CE0 /* harusari-woobin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusari-woobin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +62,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC153BC424C5495F00BF05CB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC153BC224C5493100BF05CB /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		BCA4093B24C01FBC008C6CE0 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +91,7 @@
 		BCA4094624C01FBC008C6CE0 /* harusari-woobin */ = {
 			isa = PBXGroup;
 			children = (
+				BC153BC424C5495F00BF05CB /* Extension */,
 				BCF50D1924C1FB9E00EF5877 /* Mode */,
 				BCA4095E24C02B40008C6CE0 /* Controller */,
 				BCA4095D24C02650008C6CE0 /* View */,
@@ -114,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BCF50D1A24C1FBC300EF5877 /* AccountData.swift */,
+				BC153BC024C5470600BF05CB /* BMEULJIRO.otf */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -188,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA4095424C01FC0008C6CE0 /* LaunchScreen.storyboard in Resources */,
+				BC153BC124C5470600BF05CB /* BMEULJIRO.otf in Resources */,
 				BCA4095124C01FC0008C6CE0 /* Assets.xcassets in Resources */,
 				BCA4094F24C01FBC008C6CE0 /* Main.storyboard in Resources */,
 			);
@@ -249,6 +264,7 @@
 				BC3E6C7D24C0A31D00E61527 /* AddAccountView.swift in Sources */,
 				BCA4096024C02B65008C6CE0 /* AccountVC.swift in Sources */,
 				BCA4094824C01FBC008C6CE0 /* AppDelegate.swift in Sources */,
+				BC153BC324C5493100BF05CB /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
