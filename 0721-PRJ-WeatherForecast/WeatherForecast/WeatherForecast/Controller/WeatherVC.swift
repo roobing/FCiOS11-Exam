@@ -15,14 +15,38 @@ class WeatherVC: UIViewController {
     let topInfoView = TopInfoView()
     let scrolledInfoView = ScrolledInfoView()
     let backScrollView = UIScrollView()
+    var currentWeatherData: CurrentWeatherData?
+    var test = 0
+    
+//    let weatherProvider = WeatherProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         setupConstraint()
-
+        getJson(from: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e")
+//        weatherProvider.getJson(from: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e")
+        print(currentWeatherData?.main)
+        print(test)
+        
     }
+        func getJson(from url: String) {
+            let apiURL = URL(string: url)!
+            let dataTask = URLSession.shared.dataTask(with: apiURL) { data, response, error in
+                guard error == nil else { return print(error!)} // error 검사
+                guard let response = response as? HTTPURLResponse, // response 코드 검사
+                    (200..<400).contains(response.statusCode)
+                    else { return print("Invalid response")}
+                guard let data = data else { return } // data 검사
+//                self.data.append(data)
+//                print("Current Weather Data: \(self.data)")
+                self.test = 1
+                self.currentWeatherData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
+                print(self.currentWeatherData?.main)
+            }
+            dataTask.resume()
+        }
     
     func setupUI() {
         backImage.image = UIImage(named: "sunny")

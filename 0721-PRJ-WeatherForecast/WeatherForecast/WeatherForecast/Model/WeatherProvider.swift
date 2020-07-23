@@ -8,18 +8,40 @@
 
 import Foundation
 
-//        let url = "https://api.openweathermap.org/data/2.5/weather?q=london"
-//        guard let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-//        guard let weatherUrl = URL(string: encodedUrl) else { return }
-//
-//        let weatherData = URLSession.shared.dataTask(with: weatherUrl) { (data, response, error) in
-//            guard error == nil else { return print(error!) }
-//            guard let response = response as? HTTPURLResponse,
-//                (200...400).contains(response.statusCode) else {
-//                    return print("Invalid Code")
-//            }
-//            guard let data = data else { return }
-//            print(data)
-//
+class WeatherProvider {
+//    var data: Data
+//    let url: String
+//    lazy var currentWeatherData = try! JSONDecoder().decode(CurrentWeatherData.self, from: self.data)
+//    
+//    init(_ url: String) {
+//        self.url = url
+//        let apiURL = URL(string: self.url)!
+//        let dataTask = URLSession.shared.dataTask(with: apiURL) { data, response, error in
+//            guard error == nil else { return print(error!)} // error 검사
+//            guard let response = response as? HTTPURLResponse, // response 코드 검사
+//                (200..<400).contains(response.statusCode)
+//                else { return print("Invalid response")}
+//            guard let data = data else { return } // data 검사
+//            self.data.append(data)
+//            print("Current Weather Data: \(self.data)")
+//            let currentWeatherData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
+//            print(currentWeatherData.main)
 //        }
-//        weatherData.resume()
+//        dataTask.resume()
+//    }
+//    func getJson(from url: String) {
+//        let apiURL = URL(string: url)!
+//        let dataTask = URLSession.shared.dataTask(with: apiURL) { data, response, error in
+//            guard error == nil else { return print(error!)} // error 검사
+//            guard let response = response as? HTTPURLResponse, // response 코드 검사
+//                (200..<400).contains(response.statusCode)
+//                else { return print("Invalid response")}
+//            guard let data = data else { return } // data 검사
+//            self.data.append(data)
+//            print("Current Weather Data: \(self.data)")
+//            let currentWeatherData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
+//            print(currentWeatherData.main)
+//        }
+//        dataTask.resume()
+//    }
+}

@@ -158,7 +158,6 @@ class ScrolledInfoView: UIView {
 
 extension ScrolledInfoView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("1")
         return 10
     }
     
