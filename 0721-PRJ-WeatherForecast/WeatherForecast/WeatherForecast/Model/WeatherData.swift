@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CurrentWeatherData: Codable, Equatable {
+struct CurrentWeatherData: Codable {
     let coord: Coord
     let weather: [Weather]
     let base: String
@@ -22,19 +22,19 @@ struct CurrentWeatherData: Codable, Equatable {
     let name: String
     let cod: Int
     
-    struct Coord: Codable, Equatable {
+    struct Coord: Codable {
         let lon: Double
         let lat: Double
     }
     
-    struct Weather: Codable, Equatable  {
+    struct Weather: Codable {
         let id: Double
         let main: String
         let description: String
         let icon: String
     }
     
-    struct Main: Codable, Equatable  {
+    struct Main: Codable {
         let temp: Double
         let feels_like: Double
         let temp_min: Double
@@ -43,25 +43,21 @@ struct CurrentWeatherData: Codable, Equatable {
         let humidity: Double
     }
     
-    struct Wind: Codable, Equatable  {
+    struct Wind: Codable {
         let speed: Double
         let deg: Double
     }
     
-    struct Clouds: Codable, Equatable  {
+    struct Clouds: Codable {
         let all: Double
     }
     
-    struct Sys: Codable, Equatable  {
+    struct Sys: Codable {
         let type: Int
         let id: Int
         let country: String
         let sunrise: Double
         let sunset: Double
-    }
-    
-    static func == (lhs: CurrentWeatherData, rhs: CurrentWeatherData) -> Bool {
-        lhs.id == rhs.id && lhs.name == rhs.name
     }
     
 }

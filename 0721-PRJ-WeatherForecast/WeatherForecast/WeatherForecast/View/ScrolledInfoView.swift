@@ -49,6 +49,7 @@ class ScrolledInfoView: UIView {
         forecastInfoTableView.delegate = self
         forecastInfoTableView.rowHeight = 80
         forecastInfoTableView.backgroundColor = .clear
+        forecastInfoTableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: ForecastTableViewCell.identifier)
         
     }
     
@@ -162,13 +163,16 @@ extension ScrolledInfoView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-        cell.imageView?.image = UIImage(named: "01d")
-        cell.textLabel?.text = "5.29(월)"
-        cell.textLabel?.textColor = .white
-        cell.detailTextLabel?.text = "12:00"
-        cell.detailTextLabel?.textColor = .white
-        cell.accessoryType = .checkmark
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ForecastTableViewCell.identifier, for: indexPath) as? ForecastTableViewCell else { return UITableViewCell()}
+        
+//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+//        cell.imageView?.image = UIImage(named: "01d")
+//        cell.textLabel?.text = "5.29(월)"
+//        cell.textLabel?.textColor = .white
+//        cell.detailTextLabel?.text = "12:00"
+//        cell.detailTextLabel?.textColor = .white
+//        cell.accessoryType = .checkmark
         cell.backgroundColor = .clear
         
         return cell
