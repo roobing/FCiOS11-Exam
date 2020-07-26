@@ -26,7 +26,16 @@ class WeatherVC: UIViewController {
         
         setupUI()
         setupConstraint()
-        weatherProvider.getJson(from: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e")
+//        weatherProvider.getJson(from: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e")
+//        WeatherProvider.getJson(from: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e") { result in
+//            if let data = try? result.get() {
+//                self.currentWeatherData = data
+//                print("1")
+//            }
+//
+//            print("2")
+//        }
+        print("3")
         
         
     }
@@ -78,13 +87,23 @@ class WeatherVC: UIViewController {
     // MARK: - Selector
     @objc func weatherInfoReload(_ sender: UIBarButtonItem) {
         print("Weahter Info Reload...")
+        let apiURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ffddca810f60a187f1bcd04e58f33d0e")!
+        let dataTask = URLSession.shared.dataTask(with: apiURL) { data, response, error in
+            guard error == nil else { return print(error!)} // error 검사
+            guard let response = response as? HTTPURLResponse, // response 코드 검사
+                (200..<400).contains(response.statusCode)
+                else { return print("Invalid response")}
+            guard let data = data else { return } // data 검사
+            let decodedData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
+            self.currentWeatherData = decodedData
+        }
+        dataTask.resume()
     }
     
 }
 
 extension WeatherVC: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("1")
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -92,10 +111,5 @@ extension WeatherVC: UIScrollViewDelegate {
         backImageTrailingConstraint.constant = 10
         view.layoutIfNeeded()
         print(scrollView.contentOffset.y)
-        
-    }
-    
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        print("top")
     }
 }

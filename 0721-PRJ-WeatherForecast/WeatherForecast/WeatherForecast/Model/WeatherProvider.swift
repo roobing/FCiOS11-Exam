@@ -10,9 +10,9 @@ import Foundation
 
 class WeatherProvider {
     
-    var currentWeatherData: [CurrentWeatherData] = []
-
-    func getJson(from url: String) {
+    static var datata: CurrentWeatherData!
+    
+    static func getJson(from url: String, completionHandler: @escaping (Result<CurrentWeatherData, Error>) -> Void) {
         let apiURL = URL(string: url)!
         let dataTask = URLSession.shared.dataTask(with: apiURL) { data, response, error in
             guard error == nil else { return print(error!)} // error 검사
@@ -20,18 +20,22 @@ class WeatherProvider {
                 (200..<400).contains(response.statusCode)
                 else { return print("Invalid response")}
             guard let data = data else { return } // data 검사
-            self.updateData(data)
-            print(self.currentWeatherData[0])
-            print("Current Weather Data: \(data)")
+            let decodedData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
+            datata = decodedData
+            print("4")
+            DispatchQueue.main.async {
+
+                print("5")
+                completionHandler(.success(datata))
+            }
+            print("7")
+            
+//            self.updateData(data)
+//            print("Current Weather Data: \(data)")
         }
+        
+        print("6")
         dataTask.resume()
     }
-    
-    
-    func updateData(_ data: Data) {
 
-        let decodedData = try! JSONDecoder().decode(CurrentWeatherData.self, from: data)
-        self.currentWeatherData.append(decodedData)
-        
-    }
 }

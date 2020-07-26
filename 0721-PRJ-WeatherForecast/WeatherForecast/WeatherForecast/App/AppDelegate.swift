@@ -17,7 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         window?.rootViewController = UINavigationController(rootViewController: WeatherVC())
         window?.makeKeyAndVisible()
-        
+      
         return true
     }
 }
