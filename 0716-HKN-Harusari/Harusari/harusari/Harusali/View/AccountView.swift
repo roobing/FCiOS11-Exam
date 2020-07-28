@@ -195,6 +195,7 @@ extension AccountView: UITableViewDataSource {
 }
 
 extension AccountView: FSCalendarDelegate, FSCalendarDataSource {
+    // FSCalendar
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         dateFormatter.dateStyle = .short
         dateFormatter.locale = Locale(identifier: "ko-KR")
